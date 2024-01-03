@@ -1,0 +1,67 @@
+body{
+    background-image: linear-gradient(-90deg,#a6c1ee,#f68b8f);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.items{
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 35%;
+  padding: 1%;
+  border-radius: 5px;
+}
+.addTask{
+   width:75%;
+   line-height:2.5em;
+   border-radius: 4%;
+   border:1px inset #f89099;
+   font-size: 15px;
+}
+.addTask:focus{
+    outline: none;
+}
+.addButton{
+    width:17%;
+    line-height:2.8em;
+    color:#fff;
+    background: #f355a7;
+    border:1px inset #f355a7;
+    border-radius:3px;
+    cursor: pointer;
+}
+.added{
+   
+    width:94%;
+    line-height:2.8em;
+}
+
+.clearButton{
+    margin-left: 54%;
+    width:16%;
+ 
+    border-radius:3px;
+    cursor: pointer;
+    color:#fff;
+    background: #f355a7;
+    border:1px inset #f355a7;
+    font-size:15px;
+    line-height:2.7em;
+}
+
+.item-list{
+    list-style: none;
+padding: 1%;
+    
+}
+li::first-line{
+    margin-top:0;
+}
+li{
+    background-color:gainsboro ;
+    margin-top:0.5em;
+}
+#empty{
+    text-align: center;
+}

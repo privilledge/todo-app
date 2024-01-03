@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="items">
+        <h1>Todo App</h1>
+        <div class="inputs">
+        <input type="" placeholder="Add your new todo" class="addTask" id="addTask">
+        <button class="addButton" onclick="toDo()"><i class="fa fa-plus" style="font-size:17px"></i></button>
+        <h4 id="empty">Todo list is empty</h4>
+        <div class="added" id="added">
+           
+            <ul class="item-list" id="itemList">
+               
+            </ul>
+       
+        </div>
+
+        <span class="taskCounter" id="taskCounter">0 pending tasks</span>
+        <input type="button" value="Clear All" class="clearButton" onclick="clearList()">
+       
+
+      
+    </div>
+    </div>
+        <script src="script.js"></script>
+    </body>
+</html>
