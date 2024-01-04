@@ -1,29 +1,71 @@
-let displayList=document.getElementById('itemList');
-function toDo(){
-    var task=document.getElementById('addTask').value;
-   if (task==='') {
-    alert('You must write something');
-   }
-   else{
- 
-    var list=document.createElement('li');
-    list.textContent=task;
-    displayList.appendChild(list);
-    document.getElementById('addTask').value='';
-    document.getElementById('empty').innerHTML='Pending tasks'
-    let taskCount=document.getElementsByTagName('li');
-    document.getElementById('taskCounter').innerHTML=taskCount.length+' pending tasks'
-   }
-   
+listTodo();
+document.getElementById('addButton').addEventListener('click',addTo);
+function addTo(){
+    let task=document.getElementById('addTask').value;
+    if(task!=''){
+        setData(task);
+        listTodo();
+    }
+    else{
+        alert('Enter task');
+    }
 }
-function clearList(){
-
-while(displayList.firstChild){
+function setData(task){
+   let counter=0;
+    let data=getData();
+    if(getData(data)==task){
+       alert('Task already exists');
+    }
+    else{
+        data=(data!=false)?data:[];
+        data.push(task);
+        data=JSON.stringify(data);
     
-    displayList.removeChild(displayList.firstChild);
-    document.getElementById('empty').innerHTML='Todo list is empty';
-    document.getElementById('taskCounter').innerHTML='0 pending tasks'
+        localStorage.setItem('myTodo',data);
+    }
+  
+    document.getElementById('addTask').value='';
 }
+function getData(task=null){
+    let data=JSON.parse(localStorage.getItem('myTodo'));
+    if(data){
+        if(task){
+            if(data.indexOf(task)!=-1){
+                return data[task];
+            }
+            else{
+                return false;
+            }
+        }
+        return data;
+    }
+    return false;
+
 }
+function listTodo(){
+    let data=getData();
+    let html='';
+    let displayList=document.getElementById('itemList');
+    displayList.innerHTML=html;
+    let counter=0;
+
+    if(data){
+        for (let i = 0; i < data.length; i++) {
+          let list=document.createElement('li');
+          list.textContent=data[i];
+          displayList.appendChild(list); 
+          counter+=1; 
+        }
+    }
+    console.log(counter);
+    document.getElementById('taskCounter').innerHTML=counter+' pending tasks';
+}
+
+function deleteTask(){
+    localStorage.clear();
+    listTodo();
+}
+document.getElementById('clear').addEventListener('click',deleteTask);
+
 
 
